@@ -1,5 +1,6 @@
 package com.algaworks.algafood.domain.model;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cozinha {
 
