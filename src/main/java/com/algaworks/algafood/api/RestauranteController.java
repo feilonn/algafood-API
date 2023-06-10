@@ -5,7 +5,6 @@ import com.algaworks.algafood.domain.exception.EntidadeSemAtributosObrigatoriosE
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.RestaurenteRepository;
 import com.algaworks.algafood.domain.service.CadastroRestauranteService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +22,11 @@ public class RestauranteController {
 
     @Autowired
     private CadastroRestauranteService cadastroRestauranteService;
+
+    @GetMapping("/porNome")
+    public List<Restaurante> restaurantesPorCozinha(String nome, Long cozinhaId) {
+        return restaurenteRepository.consultarPorNome(nome, cozinhaId);
+    }
 
     @GetMapping
     public List<Restaurante> listar() {
