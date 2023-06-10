@@ -3,13 +3,14 @@ package com.algaworks.algafood.api;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algafood.domain.exception.EntidadeSemAtributosObrigatoriosException;
 import com.algaworks.algafood.domain.model.Restaurante;
-import com.algaworks.algafood.domain.repository.RestaurenteRepository;
+import com.algaworks.algafood.domain.repository.RestauranteRepository;
 import com.algaworks.algafood.domain.service.CadastroRestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,14 +19,20 @@ import java.util.Optional;
 public class RestauranteController {
 
     @Autowired
-    private RestaurenteRepository restaurenteRepository;
+    private RestauranteRepository restaurenteRepository;
 
     @Autowired
     private CadastroRestauranteService cadastroRestauranteService;
 
-    @GetMapping("/porNome")
-    public List<Restaurante> restaurantesPorCozinha(String nome, Long cozinhaId) {
-        return restaurenteRepository.consultarPorNome(nome, cozinhaId);
+//    @GetMapping("/porNome")
+//    public List<Restaurante> restaurantesPorCozinha(String nome, Long cozinhaId) {
+//        return restaurenteRepository.consultarPorNome(nome, cozinhaId);
+//    }
+
+    @GetMapping("/por-nome-e-frete")
+    public List<Restaurante> restaurantesPorNomeFrete(String nome, BigDecimal taxaFreteInicial,
+                                                      BigDecimal taxaFreteFinal) {
+        return restaurenteRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
     }
 
     @GetMapping
