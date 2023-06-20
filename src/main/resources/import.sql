@@ -22,3 +22,5 @@ INSERT INTO cidade (id, nome, estado_id) values (2, 'Belo Horizonte', 1);
 INSERT INTO cidade (id, nome, estado_id) values (3, 'São Paulo', 2);
 INSERT INTO cidade (id, nome, estado_id) values (4, 'Campinas', 2);
 INSERT INTO cidade (id, nome, estado_id) values (5, 'Fortaleza', 3);
+
+INSERT INTO restaurante_forma_pagamento(restaurante_id, forma_pagamento_id) VALUES (1, 1), (1, 2), (1, 3), (2, 3)
