@@ -44,7 +44,8 @@ public class CadastroRestauranteService {
                         "Não foi encontrado restaurante com o ID %d", restauranteId));
             }
 
-            BeanUtils.copyProperties(restaurante, restauranteEncontrado, "id");
+            BeanUtils.copyProperties(restaurante, restauranteEncontrado,
+                    "id", "formasPagamento", "edereco");
 
             Long cozinhaId = restaurante.getCozinha().getId();
             Optional<Cozinha> cozinhaEncontrada = cozinhaRepository.findById(cozinhaId);
