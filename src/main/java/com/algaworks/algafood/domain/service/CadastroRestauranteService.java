@@ -36,16 +36,18 @@ public class CadastroRestauranteService {
 
     public Restaurante atualizar(Restaurante restaurante, Long restauranteId) {
         try {
-            Optional<Restaurante> restauranteEncontrado = restaurenteRepository
-                    .findById(restauranteId);
+            Restaurante restauranteEncontrado = restaurenteRepository
+                    .findById(restauranteId).orElse(null);
 
-            if(restauranteEncontrado.isEmpty()) {
+            if(restauranteEncontrado == null) {
                 throw new EntidadeNaoEncontradaException(String.format(
                         "Não foi encontrado restaurante com o ID %d", restauranteId));
             }
 
+            System.out.println(restauranteEncontrado.getId());
+
             BeanUtils.copyProperties(restaurante, restauranteEncontrado,
-                    "id", "formasPagamento", "edereco");
+                    "id", "formasPagamento", "endereco", "dataCadastro", "dataAtualizacao");
 
             Long cozinhaId = restaurante.getCozinha().getId();
             Optional<Cozinha> cozinhaEncontrada = cozinhaRepository.findById(cozinhaId);
@@ -55,9 +57,9 @@ public class CadastroRestauranteService {
                         "Não foi encontrado cozinha com o ID %d", cozinhaId));
             }
 
-            restaurante.setCozinha(cozinhaEncontrada.get());
+            restauranteEncontrado.setCozinha(cozinhaEncontrada.get());
 
-            return restaurenteRepository.save(restaurante);
+            return restaurenteRepository.save(restauranteEncontrado);
 
         }catch(NullPointerException ex) {
             throw new EntidadeNaoEncontradaException("É preciso informar a cozinha.");

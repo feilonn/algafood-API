@@ -12,8 +12,11 @@ INSERT INTO cozinha(id, nome) VALUES (1, 'Japonesa');
 INSERT INTO cozinha(id, nome) VALUES (2, 'Havaiana');
 INSERT INTO cozinha(id, nome) VALUES (3, 'Mineira');
 
-INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro) VALUES (1, 'Gusteaus', 11.50, 1, 1, '38400-999', 'Rua João Pinheiro', '1000', 'Centro');
-INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro) VALUES (2, 'Taberna', 15, 2, 2, '38400-888', 'Rua Chico Marreco', '19', 'Peninsula');
+INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro, data_cadastro, data_atualizacao) VALUES (1, 'Gusteaus', 11.50, 1, 1, '38400-999', 'Rua João Pinheiro', '1000', 'Centro', utc_timestamp, utc_timestamp);
+INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero, endereco_bairro, data_cadastro, data_atualizacao) VALUES (2, 'Taberna', 15, 2, 2, '38400-888', 'Rua Chico Marreco', '19', 'Peninsula', utc_timestamp, utc_timestamp);
+
+-- INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id) VALUES (1, 'Gusteaus', 11.50, 1);
+-- INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id) VALUES (2, 'Taberna', 15, 2);
 
 INSERT INTO forma_pagamento(id, descricao) VALUES (1, 'CARTÃO DE CRÉDITO');
 INSERT INTO forma_pagamento(id, descricao) VALUES (2, 'CARTÃO DE DÉBITO');
