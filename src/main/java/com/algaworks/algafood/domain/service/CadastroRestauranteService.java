@@ -47,7 +47,8 @@ public class CadastroRestauranteService {
             System.out.println(restauranteEncontrado.getId());
 
             BeanUtils.copyProperties(restaurante, restauranteEncontrado,
-                    "id", "formasPagamento", "endereco", "dataCadastro", "dataAtualizacao");
+                    "id", "formasPagamento", "endereco",
+                    "dataCadastro", "dataAtualizacao", "produtos");
 
             Long cozinhaId = restaurante.getCozinha().getId();
             Optional<Cozinha> cozinhaEncontrada = cozinhaRepository.findById(cozinhaId);

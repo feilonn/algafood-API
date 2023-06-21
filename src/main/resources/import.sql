@@ -18,6 +18,9 @@ INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id, endereco_cidade_id, e
 -- INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id) VALUES (1, 'Gusteaus', 11.50, 1);
 -- INSERT INTO restaurante (id, nome, taxa_frete, cozinha_id) VALUES (2, 'Taberna', 15, 2);
 
+INSERT INTO produto(id, nome, descricao, preco, ativo, restaurante_id) VALUES (1, "Pizza Nordestina", "Carne de sol, manteiga de garrafa", 39.99, true, 1);
+INSERT INTO produto(id, nome, descricao, preco, ativo, restaurante_id) VALUES (2, "Frango Grelhado", "Oregano e sal", 22, true, 2);
+
 INSERT INTO forma_pagamento(id, descricao) VALUES (1, 'CARTÃO DE CRÉDITO');
 INSERT INTO forma_pagamento(id, descricao) VALUES (2, 'CARTÃO DE DÉBITO');
 INSERT INTO forma_pagamento(id, descricao) VALUES (3, 'PIX');
